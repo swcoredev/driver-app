@@ -1,0 +1,45 @@
+digraph G {
+    // Основные модули
+    auth [label="Модуль авторизации"];
+    chat [label="Модуль чата"];
+    docsend [label="Модуль отправки документов"];
+    speedcam [label="Модуль камер"];
+    track [label="Модуль отслеживания"];
+    voice [label="Модуль голосовых сообщений"];
+    pdfreader [label="Модуль чтения PDF"];
+    radio [label="Модуль радио"];
+    notifications [label="Модуль уведомлений"];
+
+    // Внешние сервисы
+    server [label="Сервер приложения"];
+    fcm [label="Firebase Cloud Messaging"];
+    gps [label="GPS/ГЛОНАСС"];
+    maps [label="Карты"];
+
+    // Взаимодействия
+    auth -> server;
+    chat -> server;
+    docsend -> server;
+    track -> server;
+    track -> gps;
+    track -> maps;
+    speedcam -> gps;
+    speedcam -> maps;
+    speedcam -> voice;
+    notifications -> fcm;
+    notifications -> server;
+    
+    // Взаимодействия между модулями
+    chat -> voice;
+    chat -> notifications;
+    docsend -> pdfreader;
+    docsend -> notifications;
+    track -> notifications;
+    speedcam -> notifications;
+    voice -> notifications;
+    radio -> voice;
+    
+    // Стили
+    node [shape=box, style=filled, color=lightblue];
+    edge [color=gray];
+} 
