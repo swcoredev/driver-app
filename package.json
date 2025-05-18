@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "react-native": "^0.79.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.27.0",
+    "typescript": "^5.8.3"
+  }
+}
